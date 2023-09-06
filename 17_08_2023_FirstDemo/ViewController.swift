@@ -31,9 +31,24 @@ class ViewController: UIViewController {
      let nameExtractedFromTF =    userNameTextField.text
         
         messageLabel.text = "Welocme" + nameExtractedFromTF!
+        
+        var secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+        
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+        
     }
     
-    
+    @IBAction func btnClicked(_ sender: UIButton) {
+//        sender.titleLabel!
+        print(sender.tag)
+        if sender.tag == 1{
+            messageLabel.backgroundColor = .cyan
+        }else if sender.tag == 2{
+            messageLabel.backgroundColor = .gray
+        }else {
+            messageLabel.backgroundColor = .magenta
+        }
+    }
     
     func creatingSimpleUIThroughCode(){
         labelDimensions = CGRect(x: 50, y: 200, width: 300, height: 60)
